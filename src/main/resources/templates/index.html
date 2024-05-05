@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="" th:href="@{/css/index.css}">
+  
+    <link rel="stylesheet" type="text/css" href="" th:href="@{/css/med.css}">
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=661f83ed696c5b0019fbab09&product=inline-share-buttons&source=platform" async="async"></script>
+  
+  
+<title>&nbsp &nbsp &nbspjob portal</title>
+
+  
+<style> 
+		body { 
+			margin: 0; 
+			padding: 0; 
+		} 
+
+	/*	div { 
+			position: absolute; 
+			top: 50%; 
+			left: 50%; 
+			transform: translate(-50%, -50%); 
+		} 
+*/
+		h6 { 
+			font-size: 1.0rem; 
+			font-family: serif; 
+			color: #ff1a1a;
+			background-color: #ffe6f9;
+			text-align: center;
+			animation: animate 
+				1.5s linear infinite; 
+		} 
+
+		@keyframes animate { 
+			0% { 
+				opacity: 0; 
+			} 
+
+			50% { 
+				opacity: 0.7; 
+			} 
+
+			100% { 
+				opacity: 0; 
+			} 
+		} 
+	</style>
+
+</head>
+<header>
+<div id="a">
+
+<h1 align="center">Job Portal</h1>
+
+</div>
+
+<div id="b">
+<h2 align="center">Have a account?<h2>
+<div align="center" id="c">
+<a th:href="@{/login}" >login</a>
+</div>
+
+</div>
+
+</header>
+
+<body>
+
+</div>
+
+<footer id="con2">
+<div id="vv">
+
+	<form align="center" th:action="@{/}">
+		Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+		&nbsp;
+		<input type="submit" value="Search" />
+		&nbsp;
+		<input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+	</form>
+	<br/><br/>
+	
+		<table align="center" border="1" cellpadding="10">
+	
+		<div align="center" th:if="${totaljob > 1}">
+		Total Job: [[${totaljob}]]
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	
+		<thead>
+			<tr>
+				<th>Application ID</th>
+				<th>Jobdesignation</th>
+				<th>Department</th>
+				<th>Salary</th>
+				<th>Location</th>
+				<th>Noticepriod</th>	
+				<th>Job Type</th>
+				<th>Job Description</th>	
+					
+				
+				<th>Share</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product : ${listProducts}">
+				<td th:text="${product.applicationid}">Application ID</td>
+				<td th:text="${product.jobdesignation}">jobdesignation</td>
+				<td th:text="${product.department}">department</td>
+				<td th:text="${product.salary}">salary</td>
+				<td th:text="${product.location}">Location</td>
+				<td th:text="${product.noticepriod}">notice priod</td>
+				<td th:text="${product.jobtype}">jobtype</td>
+				<td th:text="${product.jobdescription}">description</td>
+				
+				<td>
+
+<div class="sharethis-inline-share-buttons"></div>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/}]]";
+	}
+</script>
+
+</div>
+<br>
+<div id="sf">
+
+
+</div>
+</footer>
+</body>
+</html>
